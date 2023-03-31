@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-sD9Z1qtz8nB+zbJvGQ2+RxLIV+nzqujPWxh61v72Rvb1/hzTcOl6TQxmBLOvnT6OFhU6m3kxskFm6G1/vcgXHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <p><strong>Tasks</strong>List</p>
+        <button id="add-card-btn" class="btn">
+          <span class="add-btn">&nbsp;+&nbsp;</span> Add Item
+        </button>       
+      </div>
+       <div class="cards-container"></div>
+      <div class="popup-container" id="popup-container">
+        <div class="popup">
+          <h2>Add New Card</h2>
+          <input type="text" id="card-name" placeholder="Enter Card Name..." />
+          <textarea
+            id="card-description"
+            placeholder="Enter Card Description..."
+          ></textarea>
+          <button id="add-card">Add</button>
+          <button id="cancel">Close</button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

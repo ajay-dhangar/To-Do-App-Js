@@ -41,9 +41,14 @@ body {
 /* ==== style for add-btn ==== */
 .add-btn {
   border-radius: 50%;
-
   background-color: blue;
-  font-weight: bold;
+  font-family: serif;
+}
+.no-item {
+  margin-top: 50px;
+  margin-left: 50px;
+  font-size: 32px;
+  font-weight: 100;
 }
 .cards-container {
   display: flex;
@@ -82,7 +87,7 @@ body {
   margin-top: 20px;
   margin-left: 30%;
   font-size: 20px;
-  background-color: blue;
+  background-color: #4caf50;
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -105,12 +110,13 @@ body {
   width: 33px;
   height: 33px;
   font-weight: bold;
-  background-color: #4caf50;
+  background-color: blue;
   border-radius: 50%;
 }
+
 .card .sub-btn {
   width: 25px;
-  height: 25px;
+  height: 30px;
 }
 /* ==== style for popup-container ==== */
 .popup-container {

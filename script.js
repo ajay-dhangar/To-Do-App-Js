@@ -4,16 +4,18 @@ const popupContainer = document.getElementById("popup-container");
 const popup = document.querySelector(".popup");
 const cancelBtn = document.getElementById("cancel");
 const addCardBtnPopup = document.getElementById("add-card");
+const noitem = document.querySelector(".no-item");
 
 // to store the card data
-let cards = [];
+let cards = []; //  an array (empty)
 
 // display the cards on load
-displayCards();
+displayCards(); // function calling
 
 // open popup when add button is clicked
 addCardBtn.addEventListener("click", () => {
   popupContainer.style.display = "block";
+  noitem.style.display = "none";
 });
 
 // close popup when cancel button is clicked
@@ -26,14 +28,16 @@ addCardBtnPopup.addEventListener("click", () => {
   const cardName = document.getElementById("card-name").value;
   const cardDescription = document.getElementById("card-description").value;
 
+  // if cardName and cardDescription is not empty then condition is gtrue
   if (cardName !== "" && cardDescription !== "") {
+    // create object
     const card = {
       name: cardName,
       description: cardDescription,
-      subItems: [],
+      subItems: [], // create value as a form of array
     };
 
-    cards.push(card);
+    cards.push(card); // push card object in cards array
 
     // clear the input fields and close the popup
     document.getElementById("card-name").value = "";
@@ -52,15 +56,15 @@ function displayCards() {
 
   cards.forEach((card, index) => {
     // create a new card element
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card");
+    const cardElement = document.createElement("div"); // create a div tag
+    cardElement.classList.add("card"); // class name is card
     cardElement.innerHTML = `
-      <h3>${card.name}</h3>
+      <h3>${card.name}</h3> 
       <hr />
       <p>${card.description}</p>
-      <hr />
+
       <ul class="sub-items"></ul>
-      <hr />
+      
       <button class="edit-btn">&#x270E;</button>
       <button class="delete-btn">&#x2715;</button>
       <button class="add-sub-item-btn">&#43;</button>
@@ -113,9 +117,9 @@ function displayCards() {
 // edit a card
 function editCard(index) {
   const card = cards[index];
-  const cardName = prompt("Enter new card name:", card.name);
+  const cardName = prompt("Enter new item name:", card.name);
   const cardDescription = prompt(
-    "Enter new card description:",
+    "Enter new item description:",
     card.description
   );
 
@@ -129,7 +133,7 @@ function editCard(index) {
 
 // delete a card
 function deleteCard(index) {
-  if (confirm("Are you sure you want to delete this card?")) {
+  if (confirm("Are you sure you want to delete this item?")) {
     cards.splice(index, 1);
     // display the updated cards
     displayCards();

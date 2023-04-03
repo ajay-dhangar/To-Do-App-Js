@@ -36,7 +36,7 @@ body {
   font-size: 22px;
   background-color: #000;
   color: #fff;
-  border: 1px solid #000;
+  border: none;
 }
 /* ==== style for add-btn ==== */
 .add-btn {
@@ -87,21 +87,22 @@ body {
   margin-top: 20px;
   margin-left: 30%;
   font-size: 20px;
-  background-color: #4caf50;
+
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  color: #fff;
+  border: none;
+  width: auto;
+  height: auto;
+  background-color: #fff;
   font-weight: bold;
 }
 .card .delete-btn {
   margin-top: 20px;
   font-size: 20px;
-  width: 35px;
-  height: 35px;
+  width: auto;
+  height: auto;
   border-radius: 50%;
-  background-color: #f44336;
-  color: #fff;
+  background-color: #fff;
+  border: none;
   font-weight: bold;
 }
 .card .add-sub-item-btn {
@@ -181,4 +182,19 @@ body {
   .card {
     width: 100%;
   }
+}
+.editing {
+  color: #065c09;
+}
+.deleting {
+  color: red;
+}
+.done {
+  background-color: #fff;
+  border: none;
+}
+.dones {
+  border: 1px solid grey;
+  color: #fff;
+  border-radius: 50%;
 }

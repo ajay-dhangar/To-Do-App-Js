@@ -53,16 +53,18 @@ body {
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 50px;
   margin-top: 50px;
+  justify-content: center;
 }
 .card {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
-  min-height: 200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 20px;
+  width: 280px;
   color: #000;
 }
 
@@ -71,23 +73,33 @@ body {
   text-align: center;
 }
 
-.card p {
+/* .card p {
   margin-bottom: 20px;
-  text-align: center;
-}
+  text-align: center;  
+} */
 
 .card ul {
-  padding-left: 20px;
+  padding-top: 5px;
+  height: 300px;
+  overflow-y: auto;
 }
 
 .card li {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  display: flex;
 }
+.card li span {
+  margin-top: 10px;
+  width: 50%;
+}
+.btn-left {
+  width: 50%;
+}
+
 .card .edit-btn {
   margin-top: 20px;
   margin-left: 30%;
   font-size: 20px;
-
   border-radius: 50%;
   border: none;
   width: auto;
@@ -151,7 +163,7 @@ body {
 .popup textarea {
   display: block;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
   border: none;

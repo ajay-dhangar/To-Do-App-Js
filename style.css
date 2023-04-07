@@ -24,6 +24,12 @@ body {
 }
 .container p {
   margin-left: 10%;
+  color: #fff;
+  text-shadow: 2px 1px #a18d8d;
+  font-size: 38px;
+}
+#new-text {
+  display: none;
 }
 .container button {
   margin-right: 10%;
@@ -191,6 +197,11 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+  .card {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 380px) {
   .card {
     width: 100%;
   }

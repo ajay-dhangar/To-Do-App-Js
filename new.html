@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Card App</title>
+    <style>
+        /* Style for card container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Style for individual cards */
+        .card {
+            flex-basis: 200px;
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin: 16px;
+            text-align: center;
+        }
+
+        /* Style for back button */
+        .back-button {
+            margin-top: 16px;
+            cursor: pointer;
+            color: blue;
+        }
+
+        /* Style for add button */
+        .add-button {
+            margin-top: 16px;
+            cursor: pointer;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="card-container" class="card-container">
+        <!-- Card 1 -->
+        <div class="card" id="card1">
+            <h2>Card 1</h2>
+            <p>Card 1 content</p>
+            <button onclick="goToNextLayout('card1')">View Details</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" id="card2">
+            <h2>Card 2</h2>
+            <p>Card 2 content</p>
+            <button onclick="goToNextLayout('card2')">View Details</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" id="card3">
+            <h2>Card 3</h2>
+            <p>Card 3 content</p>
+            <button onclick="goToNextLayout('card3')">View Details</button>
+        </div>
+    </div>
+
+    <div id="details-container" style="display:none">
+        <!-- Back Button -->
+        <button class="back-button" onclick="goToCardList()">Back</button>
+
+        <!-- Add Button -->
+        <button class="add-button" onclick="addCard()">Add Card</button>
+    </div>
+
+    <script>
+        // Function to handle click on "View Details" button
+        function goToNextLayout(cardId) {
+            // Hide card container
+            document.getElementById('card-container').style.display = 'none';
+
+            // Show details container
+            document.getElementById('details-container').style.display = 'block';
+
+            // Store selected card id in localStorage
+            localStorage.setItem('selectedCardId', cardId);
+        }
+
+        // Function to handle click on "Back" button
+        function goToCardList() {
+            // Show card container
+            document.getElementById('card-container').style.display = 'flex';
+
+            // Hide details container
+            document.getElementById('details-container').style.display = 'none';
+        }
+
+        // Function to handle click on "Add Card" button
+        function addCard() {
+            // Get selected card id from localStorage
+            var selectedCardId = localStorage.getItem('selectedCardId');
+
+            // Logic to add a new card with the selected card id
+            // ... add your logic here ...
+            // For example:
+            var newCardName = "New Card";
+            var newCardId = "card4";
+            var newCardHtml = '<div class="card" id="' + newCardId + '"><h2>' + newCardName + '</h2><p>' + newCardName +
+                ' content</p><button onclick="goToNextLayout(\'' + newCardId + '\')">View Details</button></div>';
+            document.getElementById('card-container').insertAdjacentHTML('beforeend', newCardHtml);
+                    // Reset selected card id in localStorage
+        localStorage.removeItem('selectedCardId');
+    }
+</script>
+</body>
+</html>

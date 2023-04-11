@@ -3,13 +3,16 @@ const main2Contain = document.querySelector(".main-2");
 const addCardBtn = document.getElementById("add-card-btn");
 const cardsContainer = document.querySelector(".cards-container");
 const popupContainer = document.getElementById("popup-container");
+const popup2Container = document.getElementById("popup2-container");
 const popup = document.querySelector(".popup");
+const popup2 = document.querySelector(".popup2");
 const cancelBtn = document.getElementById("cancel");
+const cancelItemBtn = document.getElementById("cancel-item");
 const addCardBtnPopup = document.getElementById("add-card");
+const addItemBtnPopup = document.getElementById("add-item");
 const noitem = document.querySelector(".no-item");
 const heading = document.querySelector("#head");
 const newText = document.querySelector("#new-text");
-const head2 = document.querySelector("#head-2");
 
 // to store the card data
 let cards = []; //  an array (empty)
@@ -83,9 +86,19 @@ function displayCards() {
       deleteCard(index);
     });
 
-    const addSubItemBtn = cardElement.querySelector(".add-sub-item-btn");
+    let addSubItemBtn = cardElement.querySelector(".add-sub-item-btn");
     addSubItemBtn.addEventListener("click", () => {
+      popup2Container.style.display = "block";
+    });
+    cancelItemBtn.addEventListener("click", () => {
+      popup2Container.style.display = "none";
+    });
+
+    // add new card when add button in popup is clicked
+    addItemBtnPopup.addEventListener("click", () => {
       addSubItem(index);
+      // display the updated cards
+      displayCards();
     });
 
     // add sub-items to the card
@@ -154,16 +167,17 @@ function deleteCard(index) {
 // add a sub-item to a card
 function addSubItem(index) {
   const card = cards[index];
-  const subItemName = prompt("Enter sub-item name:");
+  const subItemName = document.getElementById("item-name").value;
 
-  if (subItemName !== null) {
+  if (subItemName !== "") {
     const subItem = {
       name: subItemName,
     };
     card.subItems.push(subItem);
+    // clear the input fields and close the popup
+    document.getElementById("item-name").value = "";
 
-    // display the updated cards
-    displayCards();
+    popup2Container.style.display = "none";
   }
 }
 
@@ -195,7 +209,3 @@ function changeLayout() {
   mainContain.style.display = "none";
   main2Contain.style.display = "block";
 }
-head2.addEventListener("click", () => {
-  main2Contain.style.display = "none";
-  mainContain.style.display = "block";
-});

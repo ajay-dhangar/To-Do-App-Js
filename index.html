@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="main">
+    <div class="main" id="main">
       <div class="container">
         <p id="head"><strong>Tasks</strong> List</p>
         
@@ -35,7 +35,7 @@
       <div class="popup2-container" id="popup2-container">
         <div class="popup2">
           <h2>Add New Item</h2>
-          <input type="text" id="Item-name" placeholder="Enter Card Name..." />
+          <input type="text" id="item-name" placeholder="Enter Card Name..." />
           <!-- <textarea
             id="card-description"
             placeholder="Enter Card Description..."
@@ -45,6 +45,17 @@
         </div>
       </div>
     </div>
+
+    <div class="main-2">
+      <div class="container">
+        <p id="head-2"><strong>Back</strong></p>
+        
+        <button id="add-card-btn-2" class="btn">
+          <span class="add-btn">&nbsp;+&nbsp;</span> Add Item
+        </button>       
+      </div>
+    </div>
+    
     <script src="./script.js"></script>
   </body>
 </html>

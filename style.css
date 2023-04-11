@@ -229,3 +229,9 @@ body {
   color: #fff;
   border-radius: 50%;
 }
+strong {
+  color: rgb(255, 252, 77);
+}
+.main-2 {
+  display: none;
+}

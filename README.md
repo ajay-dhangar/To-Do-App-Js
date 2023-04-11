@@ -1,7 +1,7 @@
 I have created a To-Do App using JavaScript and hosted it on GitHub Pages. Let's take a closer look at your code and project.
 
-GitHub Repository: https://github.com/Ajay-Dhangar/To-Do-App-Js
-GitHub Pages Link: https://ajay-dhangar.github.io/To-Do-App-Js/
+- GitHub Repository: https://github.com/Ajay-Dhangar/To-Do-App-Js
+- GitHub Pages Link: https://ajay-dhangar.github.io/To-Do-App-Js/
 
 **Overview:**
 My To-Do App is a web application that allows users to create, manage, and track their tasks or to-do items. It appears to be built using HTML, CSS, and JavaScript.

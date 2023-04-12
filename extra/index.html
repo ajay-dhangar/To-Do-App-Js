@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Task Manager</h1>
+    <input type="text" id="task-input" placeholder="Enter task name">
+    <select id="priority-select">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <button id="add-task-btn">Add Task</button>
+    <select id="filter-select">
+      <option value="all">All</option>
+      <option value="completed">Completed</option>
+      <option value="active">Active</option>
+    </select>
+  </header>
+  <ul id="task-list"></ul>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  margin: 0;
+}
+
+input[type="text"],
+select,
+button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.task-item {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+}
+
+.task-checkbox {
+  margin-right: 10px;
+}
+
+.task-name {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.task-edit-btn,
+.task-delete-btn {
+  margin-left: 10px;
+}

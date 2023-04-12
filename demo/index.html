@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do App</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>To-Do App</h1>
+  <div class="input-container">
+    <input type="text" id="task-input" placeholder="Enter a task...">
+    <button id="add-task-btn">Add Task</button>
+  </div>
+  <div class="filter-container">
+    <label for="filter-select">Filter:</label>
+    <select id="filter-select">
+      <option value="all">All</option>
+      <option value="completed">Completed</option>
+      <option value="active">Active</option>
+    </select>
+  </div>
+  <ul id="task-list"></ul>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

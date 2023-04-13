@@ -1,49 +1,135 @@
 body {
-  font-family: Arial, sans-serif;
+  color: white;
+  background-color: black;
+  font-size: 40px;
+  font-family: "Roboto", sans-serif;
+  margin: 40px;
 }
-
-header {
+.bold {
+  font-size: 40px;
+  font-weight: bolder;
+}
+.add {
+  float: right;
+}
+.circle {
+  background-color: rgb(4, 169, 251);
+  border-radius: 50%;
+  font-size: 40px;
+  color: rgb(5, 5, 5);
+  border: #000 2px solid;
+  padding: 0px 0px;
+}
+.addview {
   padding: 20px;
-  background-color: #f0f0f0;
+  width: 400px;
+  border: solid black 2px;
+  border-radius: 20px;
+  background-color: white;
+  color: orange;
+  flex-direction: column;
 }
-
-h1 {
-  margin: 0;
-}
-
-input[type="text"],
-select,
-button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.task-item {
-  list-style-type: none;
-  padding: 10px;
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-}
-
-.task {
+footer {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-
-.task-checkbox {
-  margin-right: 10px;
+button {
+  padding: 10px 30px;
+  margin: 30px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: orange;
+  color: white;
+}
+.tex {
+  text-align: center;
+  width: 300px;
+  height: 35px;
+  border: solid black 3px;
+  border-radius: 10px;
+}
+.cards {
+  border: solid black 3px;
+  border-radius: 10px;
+  width: 250px;
+  height: auto;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
 }
 
-.task-name {
-  flex-grow: 1;
-  margin-right: 10px;
+.cardsalin {
+  background-color: aqua;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.completed {
-  text-decoration: line-through;
+.cardsalin2 {
+  background-color: aqua;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.task-edit-btn,
-.task-delete-btn {
-  margin-left: 10px;
+.newline {
+  font-size: large;
+}
+.circle1 {
+  bottom: 60px;
+  right: -121px;
+  font-size: 20px;
+}
+.circle2 {
+  position: relative;
+  bottom: 30px;
+  right: -20px;
+  font-size: 20px;
+}
+.opc {
+  opacity: 1;
+  background-color: green;
+  z-index: -3;
+}
+.todono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.flexdir {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.c1 {
+  box-sizing: border-box;
+  background-color: rgb(4, 169, 251);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 0.5cm;
+  color: white;
+  border: white 2px solid;
+  padding: 0px 5px;
+  margin: 10px;
+}
+.c2 {
+  background-color: red;
+}
+.makerd {
+  background-color: rgb(4, 169, 251);
+  font-size: small;
+  border: white 2px solid;
+  padding: 5px;
+  margin: 0;
+  border-radius: 20px;
+  color: white;
+}
+p {
+  margin-top: 10px;
 }

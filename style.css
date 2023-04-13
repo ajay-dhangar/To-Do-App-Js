@@ -12,17 +12,23 @@ body {
 }
 
 /* ==== style for main class ==== */
-.main {
-  padding: 20px;
+.main,
+#main-2 {
+  padding: 10px;
 }
 /* ==== style for container ==== */
-.container {
+.container,
+.container-2 {
   font-size: 30px;
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
 }
-.container p {
+.container-2 {
+  display: none;
+}
+.container p,
+.container-2 p {
   margin-left: 10%;
   color: #fff;
   text-shadow: 2px 1px #a18d8d;
@@ -31,11 +37,13 @@ body {
 #new-text {
   display: none;
 }
-.container button {
+.container button,
+.container-2 button {
   margin-right: 10%;
 }
 /* ==== style for h1 ==== */
-.btn {
+.container .btn,
+.container-2 .btn-2 {
   width: auto;
   height: auto;
   border-radius: 5px;
@@ -45,7 +53,8 @@ body {
   border: none;
 }
 /* ==== style for add-btn ==== */
-.add-btn {
+.container .add-btn img,
+.container-2 .add-btn-2 img {
   border-radius: 50%;
   background-color: blue;
   font-family: serif;
@@ -137,9 +146,19 @@ body {
   width: 25px;
   height: 30px;
 }
+
+#addtask-plus {
+  background-image: url(./img/add.jpg);
+  background-size: contain;
+  height: 35px;
+  width: 35px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
 /* ==== style for popup-container ==== */
 .popup-container,
-.popup2-container {
+.popup2-container,
+.popup3-container {
   display: none;
   position: fixed;
   top: 0;
@@ -151,7 +170,8 @@ body {
 }
 
 .popup,
-.popup2 {
+.popup2,
+.popup3 {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -164,14 +184,18 @@ body {
 }
 
 .popup h2,
-.popup2 h2 {
+.popup2 h2,
+.popup3 h2 {
   margin-bottom: 10px;
+  color: #ff4800;
 }
 
 .popup input,
 .popup2 input,
+.popup3 input,
 .popup textarea,
-.popup2 textarea {
+.popup2 textarea,
+.popup3 textarea {
   display: block;
   width: 100%;
   margin-bottom: 20px;
@@ -182,7 +206,8 @@ body {
 }
 
 .popup button,
-.popup2 button {
+.popup2 button,
+.popup3 button {
   display: inline-block;
   padding: 10px 20px;
   background-color: #f5f5f5;
@@ -193,13 +218,15 @@ body {
 }
 
 .popup #add-card,
-.popup2 #add-item {
+.popup2 #add-item,
+.popup3 #add-sub-items {
   background-color: #4caf50;
   color: white;
 }
 
 .popup #cancel,
-.popup2 #cancel-item {
+.popup2 #cancel-item,
+.popup3 #cancel-sub-items {
   background-color: #f44336;
   color: white;
 }
@@ -231,7 +258,4 @@ body {
 }
 strong {
   color: rgb(255, 252, 77);
-}
-.main-2 {
-  display: none;
 }

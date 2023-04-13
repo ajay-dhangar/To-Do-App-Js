@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+
+      <div id="h1">
+      <div id="heading"><strong>Tasks</strong> List</div> 
+    </div>
+
+
+      <div id="first-button-set">
+      <button id="addtask-plus" onclick="showAddCardPop()"></button>
+      <button id="back" onclick="MainPage()"> BACK </button>
+      <button id="addtask" onclick="showAddCardPop()">Add Item</button>
+      </div>
+    
+
+      <div id="add-new-list-border">
+      <div id="add-new-list-heading">Add New list</div>
+      <hr>
+      <div>
+      <form>
+      <input type="text" placeholder="Add New List" id="input-of-add-list">
+      </form>
+      </div>
+      <div id="add-new-list-buttons">
+      <button id="add-button-of-list" style="background-color: white; border-radius: 3px;"  onclick="handleAddCard()">Add </button>
+      <button id="close-button-of-list"style="background-color: white; border-radius: 3px;"onclick="closeAddCardPopup()">Close</button>
+      </div>
+      </div>
+  
+      <div id="card-title"></div>
+      <div id="card-container"></div>
+
+
+      <div id="add-new-item-border">
+      <div id="add-new-item-heading">Add New Item</div>
+      <div>
+      <hr>
+      <form>
+      <input type="text" placeholder="Add New Item" id="input-of-add-item">
+      </form>
+      </div>
+      <div id="add-new-item-buttons">
+      <button id="add-button-of-item"style="background-color: white; border-radius: 3px;" onclick="addContentToCard()">Add </button>
+      <button id="close-button-of-item" style="background-color: white; border-radius: 3px;" onclick="removeAddContentToCardPopup()">Close</button>
+      </div>
+      </div>
+
+     
+   
+  <script src="./index.js"></script>
+
+  </body>
+</html>

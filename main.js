@@ -4,15 +4,20 @@ const addCardBtn = document.getElementById("add-card-btn");
 const cardsContainer = document.querySelector(".cards-container");
 const popupContainer = document.getElementById("popup-container");
 const popup2Container = document.getElementById("popup2-container");
+const popup3Container = document.getElementById("popup3-container");
 const popup = document.querySelector(".popup");
 const popup2 = document.querySelector(".popup2");
+const popup3 = document.querySelector(".popup3");
 const cancelBtn = document.getElementById("cancel");
 const cancelItemBtn = document.getElementById("cancel-item");
+const cancelSubItemBtn = document.getElementById("cancel-sub-items");
 const addCardBtnPopup = document.getElementById("add-card");
 const addItemBtnPopup = document.getElementById("add-item");
+const addSubItemBtnPopup = document.getElementById("add-sub-items");
 const noitem = document.querySelector(".no-item");
 const heading = document.querySelector("#head");
 const newText = document.querySelector("#new-text");
+const head2 = document.querySelector("#head-2");
 
 // to store the card data
 let cards = []; //  an array (empty)
@@ -86,21 +91,26 @@ function displayCards() {
       deleteCard(index);
     });
 
-    let addSubItemBtn = cardElement.querySelector(".add-sub-item-btn");
-    addSubItemBtn.addEventListener("click", () => {
-      popup2Container.style.display = "block";
-    });
-    cancelItemBtn.addEventListener("click", () => {
-      popup2Container.style.display = "none";
-    });
+    // to store the card data
 
-    // add new card when add button in popup is clicked
-    addItemBtnPopup.addEventListener("click", () => {
+    const addSubItemBtn = cardElement.querySelector(".add-sub-item-btn");
+    // open popup when add button is clicked
+    addSubItemBtn.addEventListener("click", () => {
+      popup3Container.style.display = "block";
+      //
+    });
+    // close popup when cancel button is clicked
+    cancelSubItemBtn.addEventListener("click", () => {
+      popup3Container.style.display = "none";
+    });
+    addSubItemBtnPopup.addEventListener("click", () => {
       addSubItem(index);
+      document.getElementById("sub-item-name").value = "";
+
+      popup3Container.style.display = "none";
       // display the updated cards
       displayCards();
     });
-
     // add sub-items to the card
     const subItemsContainer = cardElement.querySelector(".sub-items");
     card.subItems.forEach((subItem) => {
@@ -167,17 +177,13 @@ function deleteCard(index) {
 // add a sub-item to a card
 function addSubItem(index) {
   const card = cards[index];
-  const subItemName = document.getElementById("item-name").value;
+  const subItemName = document.getElementById("sub-item-name").value;
 
   if (subItemName !== "") {
     const subItem = {
       name: subItemName,
     };
     card.subItems.push(subItem);
-    // clear the input fields and close the popup
-    document.getElementById("item-name").value = "";
-
-    popup2Container.style.display = "none";
   }
 }
 
@@ -209,3 +215,7 @@ function changeLayout() {
   mainContain.style.display = "none";
   main2Contain.style.display = "block";
 }
+head2.addEventListener("click", () => {
+  main2Contain.style.display = "none";
+  mainContain.style.display = "block";
+});

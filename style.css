@@ -21,8 +21,14 @@ body {
 .container-2 {
   font-size: 30px;
   margin-top: 50px;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
+}
+.add-card-btn {
+  position: absolute;
+  right: 10%;
+  top: 80px;
+  margin-bottom: 10px;
 }
 .container-2 {
   display: none;

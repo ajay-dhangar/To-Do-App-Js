@@ -1,5 +1,5 @@
-const mainContain = document.querySelector(".main");
-const main2Contain = document.querySelector(".main-2");
+const mainContain = document.querySelector("#container-1");
+const mainContain2 = document.querySelector("#container-2");
 const addCardBtn = document.getElementById("add-card-btn");
 const cardsContainer = document.querySelector(".cards-container");
 const popupContainer = document.getElementById("popup-container");
@@ -36,6 +36,7 @@ addCardBtnPopup.addEventListener("click", () => {
   if (cardName !== "") {
     // create object
     const card = {
+      id: new Date().getTime().toString(),
       name: cardName,
       subItems: [], // create value as a form of array
     };
@@ -62,7 +63,7 @@ function displayCards() {
     const cardElement = document.createElement("div"); // create a div tag
     cardElement.classList.add("card"); // class name is card
     cardElement.innerHTML = `
-      <h3 id="card-heading" onclick="changeLayout()">${card.name}</h3> 
+      <h3 id="card-heading" onclick="changelayout()">${card.name}</h3> 
       <hr />      
 
       <ul class="sub-items"></ul>
@@ -190,12 +191,24 @@ function deleteSubItem(cardIndex, subItem) {
   }
 }
 //  click on <h3>
-function changeLayout() {
-  // Add your logic here to change the layout
-  mainContain.style.display = "none";
-  main2Contain.style.display = "block";
+function changelayout() {
+  // Get the clicked card element
+  const cardElement = event.target.parentElement;
+
+  // Check if the card element has a class 'expanded'
+  if (cardElement.classList.contains("expanded")) {
+    // If it has, remove the class to collapse the card
+    cardElement.classList.remove("expanded");
+  } else {
+    // If it doesn't have, add the class to expand the card
+    cardElement.classList.add("expanded");
+  }
 }
-head2.addEventListener("click", () => {
-  main2Contain.style.display = "none";
+function back() {
+  mainContain2.style.display = "none";
   mainContain.style.display = "block";
-});
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((allcards) => {
+    allcards.style.display = "block";
+  });
+}

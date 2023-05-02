@@ -6,77 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do App</title>
 
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="main" id="main">
-      <div class="container" id="container-1">
-        <p id="head"><strong>Tasks</strong> List</p>
-        <button id="add-card-btn" class="btn add-card-btn">
-          <span class="add-btn"
-            ><img src="./img/add.jpg" alt="add" width="25" height="25"
-          /></span>
-          Add Task
-        </button>
-      </div>     
-      <p class="no-item">No items in todo list</p>
-
-      <div class="main-2" id="main-2">
-      <div class="container-2" id="container-2">
-        <h onclick="back()"><strong>Back</strong></h>
-        <button id="add-card-btn-2" class="btn-2 add-card-btn">
-          <span class="add-btn-2"><img src="./img/add.jpg" alt="add" width="25" height="25"
-          /></span> Add Item
-        </button>
+    <div id="root"></div>
+    <footer>
+      <div>
+        Made with ❤️ by
+        <a href="https://ajay-dhangar.github.io" target="_blank"
+          >Ajay-Dhangar</a
+        >
       </div>
-    </div>
-      <div class="cards-container" id="cards-container"></div>
-      <div class="popup-container" id="popup-container" id="add-new-list-border">
-        <div class="popup">
-          <h2>Add New Task</h2>
-          <input type="text" id="card-name" placeholder="Enter Task Name..." />
-          <!-- <textarea
-            id="card-description"
-            placeholder="Enter Card Description..."
-          ></textarea> -->
-          <button id="add-card" onclick="newAddCard()">Add</button>
-          <button id="cancel" onclick="closeAddCardPopup()">Close</button>
-        </div>
-      </div>
-
-      <div class="popup2-container" id="popup2-container">
-        <div class="popup2">
-          <h2>Rename Your Task</h2>
-          <input
-            type="text"
-            id="item-name"
-            placeholder="Enter Task ReName..."
-          />
-
-          <button id="add-item">Add</button>
-          <button id="cancel-item">Close</button>
-        </div>
-      </div>
-      <div class="popup3-container" id="popup3-container">
-        <div class="popup3">
-          <h2>Add New Item</h2>
-          <input
-            type="text"
-            id="sub-item-name"
-            placeholder="Enter Item Name..."
-          />
-
-          <button id="add-sub-items" onclick="addContentToCard()">Add</button>
-          <button id="cancel-sub-items" onclick="removeAddContentToCardPopup()">Close</button>
-        </div>
-      </div>
-    </div>     
-    
-   
-    
- <div id="card-title"></div>
-      <div id="card-container"></div>
-
-    <script src="./demo.js"></script>
+    </footer>
+    <!-- <script src="./demo.js"></script> -->
+    <script src="./src/index.js"></script>
+    <script src="./src/App.js"></script>
   </body>
 </html>

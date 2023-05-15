@@ -1,221 +1,196 @@
-const mainContain = document.querySelector(".main");
-const main2Contain = document.querySelector(".main-2");
 const addCardBtn = document.getElementById("add-card-btn");
-const cardsContainer = document.querySelector(".cards-container");
-const popupContainer = document.getElementById("popup-container");
-const popup2Container = document.getElementById("popup2-container");
-const popup3Container = document.getElementById("popup3-container");
-const popup = document.querySelector(".popup");
-const popup2 = document.querySelector(".popup2");
-const popup3 = document.querySelector(".popup3");
-const cancelBtn = document.getElementById("cancel");
-const cancelItemBtn = document.getElementById("cancel-item");
-const cancelSubItemBtn = document.getElementById("cancel-sub-items");
-const addCardBtnPopup = document.getElementById("add-card");
-const addItemBtnPopup = document.getElementById("add-item");
-const addSubItemBtnPopup = document.getElementById("add-sub-items");
-const noitem = document.querySelector(".no-item");
-const heading = document.querySelector("#head");
-const newText = document.querySelector("#new-text");
-const head2 = document.querySelector("#head-2");
+const addCardBtn2 = document.getElementById("add-card-btn-2");
+let cards = [];
+let cardId;
 
-// to store the card data
-let cards = []; //  an array (empty)
-
-// display the cards on load
-displayCards(); // function calling
-
-// open popup when add button is clicked
 addCardBtn.addEventListener("click", () => {
-  popupContainer.style.display = "block";
-  noitem.style.display = "none";
+  const popup = document.getElementById("popup-container");
+  popup.style.display = "block";
+  let noItem = document.querySelector(".no-item");
+  noItem.style.display = "none";
 });
 
-// close popup when cancel button is clicked
-cancelBtn.addEventListener("click", () => {
-  popupContainer.style.display = "none";
-});
+// close Add card popup
+function closeAddCardPopup() {
+  const popup = document.getElementById("popup-container");
+  popup.style.display = "none";
+}
 
-// add new card when add button in popup is clicked
-addCardBtnPopup.addEventListener("click", () => {
-  const cardName = document.getElementById("card-name").value;
-
-  // if cardName is not empty then condition is gtrue
-  if (cardName !== "") {
-    // create object
-    const card = {
-      name: cardName,
-      subItems: [], // create value as a form of array
-    };
-
-    cards.push(card); // push card object in cards array
-
-    // clear the input fields and close the popup
-    document.getElementById("card-name").value = "";
-
-    popupContainer.style.display = "none";
-
-    // display the updated cards
-    displayCards();
+function newAddCard() {
+  const cardText = document.getElementById("card-name").value;
+  const card = {
+    id: new Date().getTime().toString(),
+    cardTitle: cardText,
+    content: [],
+  };
+  if (cardText) {
+    cards.push(card);
+    renderCards(); // calling function
+  } else {
+    alert("Add Your Card Name !");
   }
-});
+  document.getElementById("card-name").value = "";
+  closeAddCardPopup();
 
-// display the cards
-function displayCards() {
-  // clear the existing cards
-  cardsContainer.innerHTML = "";
+  // const headinging = document.querySelector("#h1");
+  // headinging.style.display = "block";
 
-  cards.forEach((card, index) => {
-    // create a new card element
-    const cardElement = document.createElement("div"); // create a div tag
-    cardElement.classList.add("card"); // class name is card
-    cardElement.innerHTML = `
-      <h3 id="card-heading" onclick="changeLayout()">${card.name}</h3> 
-      <hr />      
+  // const backButton = document.querySelector("#back");
+  // backButton.style.display = "none";
+}
 
-      <ul class="sub-items"></ul>
-      
-      <button class="edit-btn"><svg xmlns="http://www.w3.org/2000/svg" class="editing" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="currentColor" d="M16 4s0-1-1-2s-1.9-1-1.9-1L12 2.1V0H0v16h12V8l4-4zm-9.7 7.4l-.6-.6l.3-1.1l1.5 1.5l-1.2.2zm.9-1.9l-.6-.6l5.2-5.2c.2.1.4.3.6.5zm6.9-7l-.9 1c-.2-.2-.4-.3-.6-.5l.9-.9c.1.1.3.2.6.4zM11 15H1V1h10v2.1L5.1 9L4 13.1L8.1 12L11 9v6z"></path></svg></button>
-      <button class="delete-btn"><svg xmlns="http://www.w3.org/2000/svg" class="deleting" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1v12M6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7H6m12-1V5h-4l-1-1h-3L9 5H5v1h13M8 9h1v10H8V9m6 0h1v10h-1V9Z"></path></svg></button>
-      <button class="add-sub-item-btn"><svg xmlns="http://www.w3.org/2000/svg" class="adding" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6h-2Z"></path></svg></button>
-    `;
+function renderContent() {
+  for (let i = 0; i < cards.length; i++) {
+    const ul = document.getElementById(`content_list_${cards[i].id}`);
+    let child = "";
+    for (let j = 0; j < cards[i].content.length; j++) {
+      const content = cards[i].content[j];
+      child += `<li class =" content ${
+        content.done ? "checked" : ""
+      }" id="content_${content.id}" onclick="doneTask(${content.id},${
+        cards[i].id
+      })">${
+        content.contentText
+      }      <svg xmlns="http://www.w3.org/2000/svg" class="editing" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M16 4s0-1-1-2s-1.9-1-1.9-1L12 2.1V0H0v16h12V8l4-4zm-9.7 7.4l-.6-.6l.3-1.1l1.5 1.5l-1.2.2zm.9-1.9l-.6-.6l5.2-5.2c.2.1.4.3.6.5zm6.9-7l-.9 1c-.2-.2-.4-.3-.6-.5l.9-.9c.1.1.3.2.6.4zM11 15H1V1h10v2.1L5.1 9L4 13.1L8.1 12L11 9v6z"></path></svg></li>
 
-    // add event listeners for edit, delete and add sub-item buttons
-    const editBtn = cardElement.querySelector(".edit-btn");
-    editBtn.addEventListener("click", () => {
-      editCard(index);
+        `;
+    }
+    ul.innerHTML = child;
+  }
+}
+
+function renderCards() {
+  const cardcontainer = document.getElementById("cards-container");
+  let child = "";
+  for (let i = 0; i < cards.length; i++) {
+    child += `<div id="card_${cards[i].id}" class="card">
+      <h2 class="content-heading" value="${cards[i].cardTitle}" onclick="changelayout(${cards[i].id}, this.getAttribute('value'))"> ${cards[i].cardTitle} </h2>
+      <br /><hr />
+      <ul id="content_list_${cards[i].id}" class="sub-items">
+      </ul>
+      <div class="item-content-buttons">
+      <button onclick="editCard(${cards[i].id})" class="edit-item-content edit-btn"><svg xmlns="http://www.w3.org/2000/svg" class="editing" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="currentColor" d="M16 4s0-1-1-2s-1.9-1-1.9-1L12 2.1V0H0v16h12V8l4-4zm-9.7 7.4l-.6-.6l.3-1.1l1.5 1.5l-1.2.2zm.9-1.9l-.6-.6l5.2-5.2c.2.1.4.3.6.5zm6.9-7l-.9 1c-.2-.2-.4-.3-.6-.5l.9-.9c.1.1.3.2.6.4zM11 15H1V1h10v2.1L5.1 9L4 13.1L8.1 12L11 9v6z"></path></svg></button>
+      <button onclick="deleteCard(${cards[i].id})" class="delete-item-content delete-btn"><svg xmlns="http://www.w3.org/2000/svg" class="deleting" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1v12M6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7H6m12-1V5h-4l-1-1h-3L9 5H5v1h13M8 9h1v10H8V9m6 0h1v10h-1V9Z"></path></svg></button>
+      <button onclick="showAddContentToCardPopup(${cards[i].id})" class="add-item-content add-sub-item-btn"><svg xmlns="http://www.w3.org/2000/svg" class="adding" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6h-2Z"></path></svg></button>
+      </div></div>`;
+  }
+  
+  cardcontainer.innerHTML = child;  
+  renderContent();
+
+}
+
+function deleteCard(id) {
+  // const cardcontainer = document.getElementById("cards-container");
+  const cardId = `card_${id}`;
+  const card = document.getElementById(cardId);
+  //remove child from parent node
+  if (confirm("Are you sure you want to delete this card?")) {
+    card.parentNode.removeChild(card);
+    cards = cards.filter((item) => item.id != id);
+  }
+}
+
+
+function showAddContentToCardPopup(id) {
+  const popup2 = document.getElementById("popup3-container");
+  popup2.style.display = "block";
+  cardId = id;
+}
+
+function removeAddContentToCardPopup() {
+  const popup3 = document.getElementById("popup3-container");
+  popup3.style.display = "none";
+}
+
+function addContentToCard() {
+  const contentListId = `content_list_${cardId}`;
+  const Ul = document.getElementById(contentListId);
+  const contentText = document.getElementById("sub-item-name").value;
+  if (!contentText) {
+    alert("Please add task name");
+  } else {
+    document.getElementById("sub-item-name").value = "";
+    const list = document.createElement("li");
+    const listId = new Date().getTime().toString();
+    list.innerHTML = contentText;
+    list.className = "content";
+    list.id = `content_${listId}`;
+    list.onclick = function () {
+      doneTask(listId, cardId);
+    };
+    Ul.appendChild(list);
+    removeAddContentToCardPopup();
+
+    list.addEventListener("click", function () {
+      if (list.style.textDecoration === "line-through") {
+        list.style.textDecoration = "none";
+      } else {
+        list.style.textDecoration = "line-through";
+      }
     });
 
-    const deleteBtn = cardElement.querySelector(".delete-btn");
-    deleteBtn.addEventListener("click", () => {
-      deleteCard(index);
-    });
+    for (let i = 0; i < cards.length; i++) {
+      if (cards[i].id == cardId) {
+        const content = {
+          id: listId,
+          contentText: contentText,
+          done: false,
+        };
+        cards[i].content.push(content);
+      }
+    }
+  }
+}
 
-    // to store the card data
+function doneTask(listId, cardId) {
+  const contentId = `content_${listId}`;
+  const liElement = document.getElementById(contentId);
+  liElement.classList.toggle("checked");
 
-    const addSubItemBtn = cardElement.querySelector(".add-sub-item-btn");
-    // open popup when add button is clicked
-    addSubItemBtn.addEventListener("click", () => {
-      popup3Container.style.display = "block";
-      //
-    });
-    // close popup when cancel button is clicked
-    cancelSubItemBtn.addEventListener("click", () => {
-      popup3Container.style.display = "none";
-    });
-    addSubItemBtnPopup.addEventListener("click", () => {
-      addSubItem(index);
-      document.getElementById("sub-item-name").value = "";
+  for (let i = 0; i < cards.length; i++) {
+    for (let j = 0; j < cards[i].content.length; j++) {
+      const content = cards[i].content[j];
+      if (content.id === listId) {
+        cards[i].content[j].done = !cards[i].content[j].done;
+      }
+    }
+  }
+}
 
-      popup3Container.style.display = "none";
-      // display the updated cards
-      displayCards();
-    });
-    // add sub-items to the card
-    const subItemsContainer = cardElement.querySelector(".sub-items");
-    card.subItems.forEach((subItem) => {
-      const subItemElement = document.createElement("li");
-      subItemElement.innerHTML = `
-        <span id="line">${subItem.name}</span>
-        <div class="btn-left"><button class="edit-btn sub-btn-1"><svg xmlns="http://www.w3.org/2000/svg" class="editing" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M16 4s0-1-1-2s-1.9-1-1.9-1L12 2.1V0H0v16h12V8l4-4zm-9.7 7.4l-.6-.6l.3-1.1l1.5 1.5l-1.2.2zm.9-1.9l-.6-.6l5.2-5.2c.2.1.4.3.6.5zm6.9-7l-.9 1c-.2-.2-.4-.3-.6-.5l.9-.9c.1.1.3.2.6.4zM11 15H1V1h10v2.1L5.1 9L4 13.1L8.1 12L11 9v6z"></path></svg></button>
-        <button class="delete-btn sub-btn-2"><svg xmlns="http://www.w3.org/2000/svg" class="deleting" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1v12M6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7H6m12-1V5h-4l-1-1h-3L9 5H5v1h13M8 9h1v10H8V9m6 0h1v10h-1V9Z"></path></svg></button>
-        <button class="done sub-btn"><svg xmlns="http://www.w3.org/2000/svg" class="dones" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z"></path></svg></button>
-      </div>`;
 
-      // add event listeners for edit and delete buttons for sub-items
-      const subItemEditBtn = subItemElement.querySelector(".edit-btn");
-      subItemEditBtn.addEventListener("click", () => {
-        editSubItem(index, subItem);
-      });
 
-      const subItemDeleteBtn = subItemElement.querySelector(".delete-btn");
-      subItemDeleteBtn.addEventListener("click", () => {
-        deleteSubItem(index, subItem);
-      });
-      const done = subItemElement.querySelector(".done");
-      const dones = subItemElement.querySelector(".dones");
-      const subBtn1 = subItemElement.querySelector(".sub-btn-1");
-      const subBtn2 = subItemElement.querySelector(".sub-btn-2");
-      const line = subItemElement.querySelector("#line");
-      //-=====  Script for Done Button ======--
-      done.addEventListener("click", () => {
-        dones.style.boeder = "none";
-        dones.style.backgroundColor = "green";
-        subBtn1.style.display = "none";
-        subBtn2.style.display = "none";
-        line.style.textDecoration = "line-through";
-        done.style.marginTop = "2px";
-      });
-      subItemsContainer.appendChild(subItemElement);
-    });
+function changelayout(id, value) {
+  const cardTitle = document.getElementById("card-title");
+  const container1 = document.getElementById("main-head-container");
+  const container2 = document.getElementById("main-head-container-2");
+  addCardBtn2.addEventListener("click", () => {
+    const popup = document.getElementById("popup-container");
+    popup.style.display = "block";
+  });
+  // cardTitle.innerHTML = value;
 
-    cardsContainer.appendChild(cardElement);
+  const cards = document.querySelectorAll(".card");
+  const cardShow = document.getElementById(`card_${id}`);
+  cards.forEach((allcards) => {
+    allcards.style.display = "none";
+    container1.style.display = "none";
+    container2.style.display = "block";
+  });
+  cardShow.style.display = "block";
+}
+
+function back() {
+  const cards = document.querySelectorAll(".card");
+  const container1 = document.getElementById("main-head-container");
+  const container2 = document.getElementById("main-head-container-2");
+  const addBtnB = document.getElementById("add-card-btn-2");
+  cards.forEach((allcards) => {
+    container2.style.display = "none";
+    addBtnB.style.display = "none";
+    container1.style.display = "block";
+
+    allcards.style.display = "block";
+    // cardcontainer.style.display = "block";
   });
 }
-
-// edit a card
-function editCard(index) {
-  const card = cards[index];
-  const cardName = prompt("Enter new item name:", card.name);
-
-  if (cardName !== null) {
-    card.name = cardName;
-    // display the updated cards
-    displayCards();
-  }
-}
-
-// delete a card
-function deleteCard(index) {
-  if (confirm("Are you sure you want to delete this item?")) {
-    cards.splice(index, 1);
-    // display the updated cards
-    displayCards();
-  }
-}
-
-// add a sub-item to a card
-function addSubItem(index) {
-  const card = cards[index];
-  const subItemName = document.getElementById("sub-item-name").value;
-
-  if (subItemName !== "") {
-    const subItem = {
-      name: subItemName,
-    };
-    card.subItems.push(subItem);
-  }
-}
-
-// edit a sub-item
-function editSubItem(cardIndex, subItem) {
-  const subItemName = prompt("Enter new sub-item name:", subItem.name);
-
-  if (subItemName !== null) {
-    subItem.name = subItemName;
-    // display the updated cards
-    displayCards();
-  }
-}
-
-// delete a sub-item
-function deleteSubItem(cardIndex, subItem) {
-  if (confirm("Are you sure you want to delete this sub-item?")) {
-    const card = cards[cardIndex];
-    const subItemIndex = card.subItems.indexOf(subItem);
-    card.subItems.splice(subItemIndex, 1);
-
-    // display the updated cards
-    displayCards();
-  }
-}
-//  click on <h3>
-function changeLayout() {
-  // Add your logic here to change the layout
-  mainContain.style.display = "none";
-  main2Contain.style.display = "block";
-}
-head2.addEventListener("click", () => {
-  main2Contain.style.display = "none";
-  mainContain.style.display = "block";
-});

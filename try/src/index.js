@@ -40,6 +40,19 @@ onclick="addTask()" ><img src="./img/add.jpg" alt="add" width="25" height="25"
   </div>
 </div>
 
+<div class="popup-container-2" id="popup-container-2" id="add-new-list-border-2">
+  <div class="popup-2">
+    <h2>Add New List</h2>
+    <input type="text" id="card-name-2" placeholder="Enter List Name..." />
+    <!-- <textarea
+      id="card-description-2"
+      placeholder="Enter List Description..."
+    ></textarea> -->
+    <button id="add-item" onclick="newAddList()">Add</button>
+    <button id="cancel-2" onclick="closeAddListPopup()">Close</button>
+  </div>
+</div>
+
 </div>
 `;
 

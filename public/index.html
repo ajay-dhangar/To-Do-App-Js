@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App JS</title>
+   
+    <script src="https://kit.fontawesome.com/90bc066b2e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="open-modal3" class="modal-window" >
+        <p class="back_btn"><i class="fas fa-arrow-circle-left"></i> Back</p>
+        <p class="new_page_title"></p>
+        <i class="fas fa-plus-circle new_page_plusBtn"></i>
+    </div>
+    <div class="heading">
+        <header class="index_header" >
+            <div id="left_index_header">
+                <p>Tasks<span class="index_span1"> Lists</span></p>
+            </div>
+            <div id="right_index_header"><p><i class="fas fa-plus-circle index_plus"></i> Add Lists</p></div>
+        </header>
+    </div>
+    <p class='no_item'>No Items in the todo list</p>
+     <div id="heading_box"></div> 
+     
+    <div id="open-modal" class="modal-window hidden">
+        <div class="index3_box">
+            <button class="close-modal" onclick="closer()">&times;</button>
+            <p class="mask_title">Add New List</p>
+            <input type="text" class="input_title" placeholder="Add New List" style="text-align:center;font-size:1.2rem;color:rgba(25, 66, 179, 0.801);">
+           <input type="button" value="ADD" class="add_button">
+        </div>
+    </div>
+    <div id="open-modal2" class="modal-window hidden2">
+        <div class="index3_box">
+            <button class="close-modal" onclick="closer2()">&times;</button>
+            <p class="mask_title">Add New Iteam</p>
+            <input type="text" class="input_iteam" placeholder="Add New Iteam" style="text-align:center;font-size:1.2rem;color:rgba(25, 66, 179, 0.801);">
+           <input type="button" value="ADD" class="add_button2">
+        </div>
+    </div>
+    <div class="overlay hidden"></div>
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+</html>

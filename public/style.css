@@ -1,0 +1,275 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.heading {
+  
+    background: linear-gradient(90deg, #5e73e0 0%, #fc1947 100%);
+}
+
+.index_header {    
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+#left_index_header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fcfc11;
+  text-shadow: 2px 2px #000;
+}
+
+#right_index_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#right_index_header > p {
+  font-size: 1.9rem;
+  font-family: "Roboto", sans-serif;
+  color: rgb(255, 240, 240);
+  font-weight: bold;
+}
+
+.index_plus {
+  color: rgba(244, 248, 18, 0.801);
+  margin: 0 0px 0 0;
+  font-size: 2.8rem;
+}
+
+.index_span1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px #000;
+}
+
+.index_plus:hover {
+  cursor: pointer;
+}
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden2 {
+  display: none;
+}
+
+.index3_box {
+  width: 30rem;
+  height: 15rem;
+  background-color: white;
+  border: 2px solid rgba(25, 66, 179, 0.801);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0.4rem 0.4rem 0.5rem 0.1rem rgb(211, 211, 211);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+}
+
+.index3_box > p {
+  font-size: 1.5rem;
+  color: rgba(25, 66, 179, 0.801);
+}
+
+.index3_box > p ~ input[type="text"] {
+  width: 20rem;
+  height: 2.5rem;
+  border: 2px solid rgba(25, 66, 179, 0.801);
+  border-radius: 0.5rem;
+  margin: 0.5rem 0 1rem 0;
+  box-shadow: 0.1rem 0.1rem 0.3rem 0.09rem rgb(211, 211, 211);
+}
+
+.add_button {
+  width: 6.5rem;
+  height: 2.6rem;
+  background-color: rgba(25, 66, 179, 0.801);
+  color: white;
+  border: 0;
+  border-radius: 1.2rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.add_button2 {
+  width: 6.5rem;
+  height: 2.6rem;
+  background-color: rgba(25, 66, 179, 0.801);
+  color: white;
+  border: 0;
+  border-radius: 1.2rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: rgba(25, 66, 179, 0.801);
+  cursor: pointer;
+  border: hidden;
+  background: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.index_box {
+  width: 17rem;
+  height: 25rem;
+  border: 2px solid rgba(25, 66, 179, 0.801);
+  margin: 0.5rem 0.25rem 2.5rem 0.25rem;
+  border-radius: 1rem;
+  box-shadow: 0.6rem 0.6rem 0.8rem 0.1rem rgb(211, 211, 211);
+}
+
+.index_box > p:first-child {
+  font-size: 1.9rem;
+  color: rgba(25, 66, 179, 0.801);
+  text-align: center;
+  margin: 1.8rem 0 0.5rem 0;
+}
+
+.index_box > hr {
+  width: 80%;
+  float: right;
+  border: 1px solid grey;
+}
+
+.task_box {
+  width: 17rem;
+  height: 17.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  color: rgba(25, 66, 179, 0.801);
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.task_icon {
+  display: flex;
+  position: relative;
+  top: 0.1rem;
+  left: 12rem;
+}
+
+.task_plus {
+  color: #1976d2;
+  font-size: 1.8rem;
+  display: absolute;
+  cursor: pointer;
+}
+
+.task_trash {
+  color: red;
+  font-size: 1.8rem;
+  margin: 0 0 0 0.5rem;
+  cursor: pointer;
+}
+
+#heading_box {
+  margin: 0.2rem 3rem 0 10rem;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.task_box > p {
+  cursor: pointer;
+}
+
+.no_found_img {
+  margin: 2rem 0 0 40rem;
+}
+
+.no_item {
+  color: rgb(12, 16, 238);
+  opacity: 0.8;
+  position: absolute;
+  top: 300px;
+  left: 480px;
+  font-family: "Roboto", sans-serif;
+  font-size: 3.5rem;
+}
+
+.title {
+  cursor: pointer;
+}
+
+.hidden_page_element {
+  margin: 8rem 0 0 33rem;
+}
+
+#open-modal3 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 5rem;
+  font-size: 2.5rem;
+  margin: auto;
+}
+
+.back_btn {
+  color: rgba(255, 0, 0, 0.774);
+  cursor: pointer;
+}
+
+.new_page_plusBtn {
+  color: #1976d2;
+  cursor: pointer;
+}
+
+.new_page_title {
+  color: rgba(25, 66, 179, 0.801);
+  font-size: 4rem;
+}
+
+.new_page_title_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

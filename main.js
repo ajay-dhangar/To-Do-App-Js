@@ -45,19 +45,15 @@ function renderContent() {
     let child = "";
     for (let j = 0; j < cards[i].content.length; j++) {
       const content = cards[i].content[j];
-      child += `<li class =" content ${
-        content.done ? "checked" : ""
-      }" id="content_${content.id}" onclick="doneTask(${content.id},${
-        cards[i].id
-      })">${
-        content.contentText
-      }      <svg xmlns="http://www.w3.org/2000/svg" class="editing" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M16 4s0-1-1-2s-1.9-1-1.9-1L12 2.1V0H0v16h12V8l4-4zm-9.7 7.4l-.6-.6l.3-1.1l1.5 1.5l-1.2.2zm.9-1.9l-.6-.6l5.2-5.2c.2.1.4.3.6.5zm6.9-7l-.9 1c-.2-.2-.4-.3-.6-.5l.9-.9c.1.1.3.2.6.4zM11 15H1V1h10v2.1L5.1 9L4 13.1L8.1 12L11 9v6z"></path></svg></li>
-
-        `;
+      
+      child += `<li class ="content ${content.done ? "checked" : "" }" id="content_${content.id}" onclick="doneTask(${content.id},${cards[i].id })">${content.contentText }</li>`;
     }
     ul.innerHTML = child;
   }
 }
+
+//  <button class="done sub-btn"><svg xmlns="http://www.w3.org/2000/svg" class="dones" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z"></path></svg></button>
+      
 
 function renderCards() {
   const cardcontainer = document.getElementById("cards-container");
@@ -69,12 +65,12 @@ function renderCards() {
       <ul id="content_list_${cards[i].id}" class="sub-items">
       </ul>
       <div class="item-content-buttons">
-      <button onclick="editCard(${cards[i].id})" class="edit-item-content edit-btn"><svg xmlns="http://www.w3.org/2000/svg" class="editing" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="currentColor" d="M16 4s0-1-1-2s-1.9-1-1.9-1L12 2.1V0H0v16h12V8l4-4zm-9.7 7.4l-.6-.6l.3-1.1l1.5 1.5l-1.2.2zm.9-1.9l-.6-.6l5.2-5.2c.2.1.4.3.6.5zm6.9-7l-.9 1c-.2-.2-.4-.3-.6-.5l.9-.9c.1.1.3.2.6.4zM11 15H1V1h10v2.1L5.1 9L4 13.1L8.1 12L11 9v6z"></path></svg></button>
       <button onclick="deleteCard(${cards[i].id})" class="delete-item-content delete-btn"><svg xmlns="http://www.w3.org/2000/svg" class="deleting" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="M18 19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7H4V4h4.5l1-1h4l1 1H19v3h-1v12M6 7v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V7H6m12-1V5h-4l-1-1h-3L9 5H5v1h13M8 9h1v10H8V9m6 0h1v10h-1V9Z"></path></svg></button>
       <button onclick="showAddContentToCardPopup(${cards[i].id})" class="add-item-content add-sub-item-btn"><svg xmlns="http://www.w3.org/2000/svg" class="adding" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6h-2Z"></path></svg></button>
       </div></div>`;
   }
-  
+  // <button onclick="editCard(${cards[i].id})" class="edit-item-content edit-btn"><svg xmlns="http://www.w3.org/2000/svg" class="editing" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="currentColor" d="M16 4s0-1-1-2s-1.9-1-1.9-1L12 2.1V0H0v16h12V8l4-4zm-9.7 7.4l-.6-.6l.3-1.1l1.5 1.5l-1.2.2zm.9-1.9l-.6-.6l5.2-5.2c.2.1.4.3.6.5zm6.9-7l-.9 1c-.2-.2-.4-.3-.6-.5l.9-.9c.1.1.3.2.6.4zM11 15H1V1h10v2.1L5.1 9L4 13.1L8.1 12L11 9v6z"></path></svg></button>
+      
   cardcontainer.innerHTML = child;  
   renderContent();
 
@@ -113,7 +109,7 @@ function addContentToCard() {
     document.getElementById("sub-item-name").value = "";
     const list = document.createElement("li");
     const listId = new Date().getTime().toString();
-    list.innerHTML = contentText;
+    list.innerHTML = `<span>${contentText}</span> <button id="${contentText}" class="done sub-btn-done"><svg xmlns="http://www.w3.org/2000/svg" class="dones" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z"></path></svg></button>`;
     list.className = "content";
     list.id = `content_${listId}`;
     list.onclick = function () {
@@ -125,8 +121,10 @@ function addContentToCard() {
     list.addEventListener("click", function () {
       if (list.style.textDecoration === "line-through") {
         list.style.textDecoration = "none";
+        document.getElementById(`${contentText}`).style.backgroundColor="transparent";
       } else {
         list.style.textDecoration = "line-through";
+        document.getElementById(`${contentText}`).style.backgroundColor="green";
       }
     });
 

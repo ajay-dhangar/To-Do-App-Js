@@ -9,6 +9,7 @@ body {
   background-color: rgb(26, 18, 39);
   color: #fff;
   font-family: Arial, sans-serif;
+
 }
 /* ======= style for root ======= */
 #root {
@@ -123,6 +124,7 @@ body {
   padding-top: 5px;
   height: 300px;
   overflow-y: auto;
+  margin-top: 10px;
 }
 
 .card li {
@@ -299,3 +301,11 @@ footer a{
 footer a:hover{
     color: #4caf50;
 }
+.item-content-buttons{
+  text-align: center;
+}
+.done{
+    margin-top: 5px;
+    border-radius: 50%;    
+}
+

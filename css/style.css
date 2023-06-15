@@ -29,6 +29,8 @@ body {
   /* background-color: #4caf50; */
   /* display: flex;
     justify-content: space-between; */
+    display: flex;
+    flex-wrap: wrap;
 }
 .add-card-btn {
   position: absolute;
@@ -264,9 +266,17 @@ body {
     width: 70%;
   }
 }
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 480px) {
+  #main-head-container button, #main-head-container-2 button{
+    position: relative;
+    /* margin-top: 50px; */
+    margin: auto;
+  }
   .card {
     width: 100%;
+  }
+  .popup{
+    width:80%;
   }
 }
 .editing {

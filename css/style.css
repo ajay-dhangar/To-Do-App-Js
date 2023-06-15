@@ -271,11 +271,12 @@ body {
     position: relative;
     /* margin-top: 50px; */
     margin: auto;
+    margin-bottom: 50px;
   }
   .card {
     width: 100%;
   }
-  .popup{
+  .popup, .popup3{
     width:80%;
   }
 }

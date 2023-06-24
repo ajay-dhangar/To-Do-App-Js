@@ -132,10 +132,12 @@ body {
 .card li {
   margin-bottom: 8px;
   display: flex;
+  text-align: center;
 }
 .card li span {
   margin-top: 10px;
   width: 50%;
+  text-align: center;
 }
 .btn-left {
   width: 50%;
@@ -174,7 +176,7 @@ body {
 
 .card .sub-btn {
   width: 25px;
-  height: 30px;
+  height: 30px;  
 }
 
 #addtask-plus {

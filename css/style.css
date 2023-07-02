@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap");
+
 /* Default Style */
 * {
   margin: 0;
@@ -8,8 +10,7 @@
 body {
   background-color: rgb(26, 18, 39);
   color: #fff;
-  font-family: Arial, sans-serif;
-
+  font-family: "Nunito Sans", sans-serif;
 }
 /* ======= style for root ======= */
 #root {
@@ -29,14 +30,19 @@ body {
   /* background-color: #4caf50; */
   /* display: flex;
     justify-content: space-between; */
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .add-card-btn {
   position: absolute;
   right: 10%;
   top: 80px;
   margin-bottom: 10px;
+}
+.uil-plus-circle {
+  font-size: 40px;
+  color: #fff;
+  display: flex;
 }
 #main-head-container-2 {
   display: none;
@@ -45,9 +51,18 @@ body {
 #main-head-container-2 p {
   margin-left: 10%;
   color: #fff;
-  text-shadow: 2px 1px #a18d8d;
-  font-size: 38px;
+  /* text-shadow: 2px 1px #a18d8d; */
+  font-size: 40px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 800;
 }
+#heading span {
+  color: yellow;
+}
+#head-1 {
+  font-weight: 700;
+}
+
 #new-text {
   display: none;
 }
@@ -70,17 +85,20 @@ body {
   font-size: 22px;  
 } */
 /* ==== style for btn text ======= */
-#add-btn-text, #add-btn-text-2{
-    color: #f5f5f5;
-    font-size: 25px;
-    text-align: center;
-   
+#add-btn-text,
+#add-btn-text-2 {
+  color: #f5f5f5;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 5px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
 }
 /* ==== style for add-btn ==== */
 #main-head-container .add-btn img,
 #main-head-container-2 .add-btn-2 img {
-  border-radius: 50%;  
-  font-family: serif;
+  border-radius: 50%;
+  font-family: "Nunito Sans", sans-serif;
 }
 .no-item {
   /* background-color: #f44336; */
@@ -90,10 +108,11 @@ body {
   justify-content: center;
   padding-top: 100px;
   margin-top: 50px;
-  margin-left: 50px;
-  font-size: 50px;
-  font-weight: 100;
+  font-size: 45px;
+  font-weight: 200;
+  font-family: "Nunito Sans", sans-serif;
 }
+
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -176,7 +195,7 @@ body {
 
 .card .sub-btn {
   width: 25px;
-  height: 30px;  
+  height: 30px;
 }
 
 #addtask-plus {
@@ -269,7 +288,8 @@ body {
   }
 }
 @media only screen and (max-width: 480px) {
-  #main-head-container button, #main-head-container-2 button{
+  #main-head-container button,
+  #main-head-container-2 button {
     position: relative;
     /* margin-top: 50px; */
     margin: auto;
@@ -278,8 +298,9 @@ body {
   .card {
     width: 100%;
   }
-  .popup, .popup3{
-    width:80%;
+  .popup,
+  .popup3 {
+    width: 80%;
   }
 }
 .editing {
@@ -303,22 +324,21 @@ strong {
 
 /* ====== Styles for footer ========== */
 footer {
-    margin-top: 50px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
 }
-footer a{
-    text-decoration: none;
-    color: #ff4800;
+footer a {
+  text-decoration: none;
+  color: #ff4800;
 }
-footer a:hover{
-    color: #4caf50;
+footer a:hover {
+  color: #4caf50;
 }
-.item-content-buttons{
+.item-content-buttons {
   text-align: center;
 }
-.done{
-    margin-top: 5px;
-    border-radius: 50%;    
+.done {
+  margin-top: 5px;
+  border-radius: 50%;
 }
-

@@ -21,11 +21,6 @@ There are several ways you can contribute to the development of the To-Do App:
 4. **Translations**: If you are fluent in multiple languages, you can help translate the To-Do App into other languages.
 
 ## Getting Started
-Sure! Here's an improved version of the "Getting Started" section with step-by-step instructions and full commands:
-
----
-
-## Getting Started
 
 To contribute to the To-Do App, please follow these step-by-step instructions:
 
@@ -69,8 +64,6 @@ To contribute to the To-Do App, please follow these step-by-step instructions:
    Replace `my-branch-name` with the name of your branch.
 
 8. **Open a Pull Request**: Finally, open a pull request on the original repository. Go to the original repository's page on GitHub and click on the "Pull Requests" tab. Then, click the "New Pull Request" button and provide a clear description of your changes. Submit the pull request.
-
-That's it! Your contributions will now be reviewed by the project maintainers. Remember to be responsive to any feedback or questions during the review process.
 
 Make sure to replace `YourUsername` with your actual GitHub username, and `my-branch-name` with an appropriate name for your branch.
 

@@ -4,12 +4,12 @@
 
 ## Table of Contents
 
-- [How Can I Contribute?](##how-can-i-contribute)
-- [Getting Started](##getting-started)
-- [Submitting Contributions](##submitting-contributions)
-- [Code Style Guidelines](##code-style-guidelines)
-- [Reporting Issues](##reporting-issues)
-- [Contact](##contact)
+- [How Can I Contribute?](#how-can-i-contribute)
+- [Getting Started](#getting-started)
+- [Submitting Contributions](#submitting-contributions)
+- [Code Style Guidelines](#code-style-guidelines)
+- [Reporting Issues](#reporting-issues)
+- [Contact](#contact)
 
 ## How Can I Contribute?
 

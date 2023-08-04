@@ -1,4 +1,6 @@
-<h1 align="center"> To Do APP </h1>
+<p align="left">
+<a href="https://github.com/Ajay-Dhangar/To-Do-App-Js"><img width="100%" src="https://github-readme-stats.vercel.app/api/pin/?username=Ajay-Dhangar&repo=To-Do-App-Js&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866&º" alt="my-capstone-project"></a>  
+</p>
 
 ![screencapture-ajay-dhangar-github-io-To-Do-App-Js-2023-05-02-20_10_43](https://user-images.githubusercontent.com/99037494/235700611-c8651332-cc63-4c5b-bf09-6e782458b0ac.png)
 
